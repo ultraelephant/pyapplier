@@ -29,8 +29,11 @@ Add ```-y``` flag to assume **Yes**. In case of multiple saved accounts add ```-
 Credetial stores in ```~/.config/pyapplier/saved_creds```
 
 **list saved accounts**: ```pyapplier.py creds list```
+
 **change account password**: ```pyapplier.py creds edit USERNAME```
+
 **delete account**: ```pyapplier.py del USERNAME```
+
 **add account**: ```pyapplier.py add USERNAME```
 
 # Todo
