@@ -38,5 +38,4 @@ Credetial stores in ```~/.config/pyapplier/saved_creds```
 
 # Todo
 
- - prepare AUR installation Manifes
  - submit to AUR
