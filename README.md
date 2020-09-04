@@ -35,7 +35,3 @@ Credetial stores in ```~/.config/pyapplier/saved_creds```
 **delete account**: ```pyapplier.py del USERNAME```
 
 **add account**: ```pyapplier.py add USERNAME```
-
-# Todo
-
- - submit to AUR
