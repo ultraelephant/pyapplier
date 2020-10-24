@@ -87,7 +87,7 @@ try:
         if line[5] == 'S':
           skipped = skipped + 1
           if dry == False:
-            print ('[X] Skipped ({}%): Artist: {}; Track: {}; Time: {}'.format(str(round(100*(iteration-3)/(tracks-3),2)),artist,track,unix_timestamp.strftime('%Y-%m-%d %H:%M:%S')))
+            print ('[X] Skipped ({}%): Artist: {}; Track: {}; Time: {}'.format(str(round(100*(iteration-3)/(tracks-3),2)),line[0],line[2],datetime.datetime.fromtimestamp(int(line[6])).strftime('%Y-%m-%d %H:%M:%S')))
           continue
         elif line[5] != 'L':
           print ('ERROR: .scrobbler.log malformed. Exiting...')
