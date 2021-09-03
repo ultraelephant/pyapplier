@@ -87,7 +87,7 @@ try:
         if line[5] == 'S':
           skipped = skipped + 1
           if dry == False:
-            print ('[X] Skipped ({}%): Artist: {}; Track: {}; Time: {}'.format(str(round(100*(iteration-3)/(tracks-3),2)),line[0],line[2],datetime.datetime.fromtimestamp(int(line[6])).strftime('%Y-%m-%d %H:%M:%S')))
+            print ('[X] Skipped ({}%): Artist: {}; Album: {}; Track: {}; Time: {}'.format(str(round(100*(iteration-3)/(tracks-3),2)),line[0],line[1],line[2],datetime.datetime.fromtimestamp(int(line[6])).strftime('%Y-%m-%d %H:%M:%S')))
           continue
         elif line[5] != 'L':
           print ('ERROR: .scrobbler.log malformed. Exiting...')
@@ -95,6 +95,7 @@ try:
         try:
           artist = line[0]
           track = line[2]
+          album = line[1]
           unix_timestamp = line[6]       
           unix_timestamp = datetime.datetime.fromtimestamp(int(unix_timestamp))
           local_tz = datetime.datetime.now(datetime.timezone.utc).astimezone().tzinfo
@@ -103,8 +104,8 @@ try:
           print ('ERROR: .scrobbler.log malformed. Exiting...')
           sys.exit(1)
         if dry == False:
-          print ('[V] Scrobled ({}%): Artist: {}; Track: {}; Time: {}'.format(str(round(100*(iteration-3)/(tracks-3),2)),artist,track,unix_timestamp.strftime('%Y-%m-%d %H:%M:%S')))
-          network.scrobble(artist=artist, title=track, timestamp=unix_timestamp.replace(tzinfo=local_tz).astimezone(tz=datetime.timezone.utc))
+          print ('[V] Scrobled ({}%): Artist: {}; Album: {}; Track: {}; Time: {}'.format(str(round(100*(iteration-3)/(tracks-3),2)),artist,album,track,unix_timestamp.strftime('%Y-%m-%d %H:%M:%S')))
+          network.scrobble(artist=artist, album=album, title=track, timestamp=unix_timestamp.replace(tzinfo=local_tz).astimezone(tz=datetime.timezone.utc))
       if dry == False:
         print("\n{} tracks scrobbled".format(str(iteration-(3+skip))))
         os.remove(scrobblerlogpath)
